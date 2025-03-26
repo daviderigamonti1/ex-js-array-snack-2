@@ -45,9 +45,19 @@ const books = [
     },
 ];
 
-baseUrl = "https://boolean-spec-frontend.vercel.app/freetestapi";
+baseUrl = "https://boolean-spec-frontend.vercel.app/freetestapi/books/";
 
 // Usando la l'API https://boolean-spec-frontend.vercel.app/freetestapi/books/{id} usa la combinazione di .map() e Promise.all(), per creare una funzione (getBooks) che a partire da un array di id (ids), ritorna una promise che risolve un array di libri (books).
 // Testala con l’array [2, 13, 7, 21, 19] .
 
-function getBooks(array) { }
+const ids = [2, 13, 7, 21, 19];
+
+async function getBooks(array) {
+    const bookPromises = ids.map(id => fetch(`${baseUrl}${id}`).then(res => res.json()));
+
+    const books = await Promise.all(bookPromises);
+
+    return books;
+}
+
+getBooks(ids).then(books => console.log(books));
