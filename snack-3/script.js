@@ -60,13 +60,9 @@ const areAuthorsAdults = authors.every(author => author.age >= 18);
 console.log("Gli autori sono tutti maggiorenni?", areAuthorsAdults);
 
 if (areAuthorsAdults) {
-    authors.sort((a, b) => {
-        return a.age - b.age;
-    })
+    authors.sort((a, b) => a.age - b.age);
 } else {
-    authors.sort((a, b) => {
-        return b.age - a.age;
-    })
+    authors.sort((a, b) => b.age - a.age);
 }
 
 console.log("Authors:", authors);

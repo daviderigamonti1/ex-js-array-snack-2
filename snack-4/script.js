@@ -53,9 +53,7 @@ const ages = books.map(book => book.author.age);
 
 // console.log("Ages:", ages);
 
-const agesSum = ages.reduce((acc, curr) => {
-    return acc + curr;
-})
+const agesSum = ages.reduce((acc, curr) => acc + curr, 0);
 
 const averageAge = agesSum / ages.length;
 

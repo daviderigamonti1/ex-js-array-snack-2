@@ -60,3 +60,5 @@ const longBooksTitles = longBooks.map(book => {
 })
 
 console.log("Titoli dei libri con più di 300 pagine:", longBooksTitles);
+
+longBooksTitles.forEach(title => console.log(title));
